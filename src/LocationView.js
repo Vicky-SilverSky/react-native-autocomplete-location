@@ -9,6 +9,7 @@ import Events from 'react-native-simple-events';
 import MapView from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import AutoCompleteInput from './AutoCompleteInput';
+import Colors from '../../../constants/Colors';
 
 
 const PLACE_DETAIL_URL = 'https://maps.googleapis.com/maps/api/place/details/json';
@@ -34,7 +35,7 @@ export default class LocationView extends React.Component {
   };
 
   static defaultProps = {
-    markerColor: 'black',
+    markerColor: Colors.red,
     actionText: 'DONE',
     onLocationSelect: () => ({}),
     debounceDuration: 300,
@@ -122,11 +123,11 @@ export default class LocationView extends React.Component {
         this._setRegion({latitude, longitude});
       },
       error => console.log(error.message),
-      {
-        enableHighAccuracy,
-        timeout,
-        maximumAge,
-      }
+      // {
+      //   enableHighAccuracy,
+      //   timeout,
+      //   maximumAge,
+      // }
     );
   };
 
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   currentLocBtn: {
-    backgroundColor: '#000',
+    backgroundColor: Colors.red,
     padding: 5,
     borderRadius: 5,
     position: 'absolute',
@@ -207,7 +208,7 @@ const styles = StyleSheet.create({
     right: 10,
   },
   actionButton: {
-    backgroundColor: '#000',
+    backgroundColor: Colors.red,
     height: 50,
     position: 'absolute',
     bottom: 10,
